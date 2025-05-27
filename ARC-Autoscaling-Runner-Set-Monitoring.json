@@ -1,4 +1,14 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING",
+      "label": "opentelemetry-mimir-prometheus-monitoring",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
   "__elements": {},
   "__requires": [
     {
@@ -17,7 +27,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "11.5.2"
+      "version": "10.4.0"
     },
     {
       "type": "panel",
@@ -83,7 +93,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
       },
       "description": "Heat map showing the typical time before a job starts and whether the number of jobs in that time bucket are increasing or decreasing.",
       "fieldConfig": {
@@ -144,12 +154,12 @@
           "unit": "s"
         }
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
           },
           "disableTextWrap": false,
           "editorMode": "code",
@@ -172,7 +182,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
       },
       "description": "Heat map showing the typical time to complete a job and whether the number of jobs in that time bucket are increasing or decreasing.",
       "fieldConfig": {
@@ -233,12 +243,12 @@
           "unit": "s"
         }
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
           },
           "disableTextWrap": false,
           "editorMode": "code",
@@ -260,7 +270,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
       },
       "description": "The number of jobs assigned to the scale set.  The threshold is triggered with the number of assigned jobs exceeds the number of desired runners. This indicates that not all jobs will have an available runner.",
       "fieldConfig": {
@@ -310,12 +320,12 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
           },
           "disableTextWrap": false,
           "editorMode": "code",
@@ -331,7 +341,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
           },
           "editorMode": "code",
           "expr": "sum(gha_desired_runners{namespace=~\"$RunnerNamespace\", actions_github_com_scale_set_name=~\"$Scaleset\"}) + 1",
@@ -366,7 +376,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
       },
       "description": "Number of runners desired by the scale set",
       "fieldConfig": {
@@ -416,12 +426,12 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
           },
           "disableTextWrap": false,
           "editorMode": "code",
@@ -441,7 +451,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
       },
       "description": "Number of registered runners that do not have assigned jobs.",
       "fieldConfig": {
@@ -491,12 +501,12 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
           },
           "disableTextWrap": false,
           "editorMode": "code",
@@ -516,7 +526,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
       },
       "description": "The number of workflow jobs currently executing",
       "fieldConfig": {
@@ -564,12 +574,12 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
           },
           "editorMode": "code",
           "expr": "sum (gha_running_jobs{actions_github_com_scale_set_name=~\"$Scaleset\", actions_github_com_scale_set_namespace=~\"$RunnerNamespace\"})",
@@ -585,7 +595,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
       },
       "description": "The number of runners in a failed state. These runners are typically misconfigured and count against the scale set's maximum limit.",
       "fieldConfig": {
@@ -633,12 +643,12 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
           },
           "editorMode": "code",
           "expr": "sum(gha_controller_failed_ephemeral_runners{name=~\"$Scaleset\", namespace=~\"$RunnerNamespace\"})",
@@ -654,7 +664,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
       },
       "description": "The number of active scale set listeners",
       "fieldConfig": {
@@ -705,12 +715,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
           },
           "editorMode": "code",
           "expr": "sum(gha_controller_running_listeners{namespace=~\"$SystemNamespace\"})",
@@ -727,7 +737,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
       },
       "description": "Number of runner pods that are waiting to be created. When this number exceeds the number of pods Kubernetes reports as Waiting, it indicate cluster performance issues.",
       "fieldConfig": {
@@ -777,12 +787,12 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
           },
           "disableTextWrap": false,
           "editorMode": "code",
@@ -798,7 +808,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
           },
           "editorMode": "code",
           "expr": "sum(kube_pod_container_status_waiting{namespace=~\"$RunnerNamespace\"}) != 0 or vector(0)",
@@ -833,7 +843,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
       },
       "description": "The number of runners registered for processing queued jobs",
       "fieldConfig": {
@@ -881,12 +891,12 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
           },
           "editorMode": "code",
           "expr": "sum(gha_registered_runners{actions_github_com_scale_set_name=~\"$Scaleset\", namespace=~\"$RunnerNamespace\"})",
@@ -902,7 +912,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
       },
       "description": "Number of runner pods in a running state",
       "fieldConfig": {
@@ -952,12 +962,12 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
           },
           "disableTextWrap": false,
           "editorMode": "code",
@@ -977,7 +987,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
       },
       "description": "The number of containers that are reporting that they were terminated by an out-of-memory condition (OOMK.iller)",
       "fieldConfig": {
@@ -1027,18 +1037,18 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
+          },
           "editorMode": "code",
           "expr": "sum(kube_pod_container_status_last_terminated_reason{reason=\"OOMKilled\",namespace=~\"$RunnerNamespace\"}) by (namespace)",
           "legendFormat": "__auto",
           "range": true,
-          "refId": "A",
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          }
+          "refId": "A"
         }
       ],
       "title": "Out of Memory",
@@ -1047,7 +1057,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
       },
       "description": "The peak memory used by a container in a given scale set's namespace.",
       "fieldConfig": {
@@ -1097,12 +1107,12 @@
         "showThresholdMarkers": false,
         "sizing": "auto"
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
           },
           "editorMode": "code",
           "expr": "max(container_memory_working_set_bytes{namespace=~\"$RunnerNamespace\"}) by (namespace)",
@@ -1119,7 +1129,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
       },
       "description": "The sum of the reads and writes occurring within the runner namespace.",
       "fieldConfig": {
@@ -1134,7 +1144,6 @@
             "axisLabel": "Bytes",
             "axisPlacement": "auto",
             "barAlignment": 0,
-            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 54,
             "gradientMode": "opacity",
@@ -1204,7 +1213,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
           },
           "editorMode": "code",
           "expr": "sum(rate(container_fs_writes_bytes_total{namespace=~\"$RunnerNamespace\"}[$__rate_interval])) > 0 or vector(0)",
@@ -1216,7 +1225,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
           },
           "editorMode": "code",
           "expr": "sum(rate(container_fs_reads_bytes_total{namespace=~\"$RunnerNamespace\"}[$__rate_interval])) > 0 or vector(0)",
@@ -1233,7 +1242,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
       },
       "description": "The Kubernetes-reported pod status.",
       "fieldConfig": {
@@ -1291,12 +1300,12 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
           },
           "disableTextWrap": false,
           "editorMode": "code",
@@ -1316,7 +1325,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
           },
           "editorMode": "code",
           "expr": "sum(kube_pod_container_status_waiting{namespace=~\"$RunnerNamespace\"}) != 0 or vector(0)",
@@ -1329,7 +1338,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
           },
           "editorMode": "code",
           "expr": "sum(kube_pod_container_status_terminated_reason{namespace=~\"$RunnerNamespace\", reason=\"Completed\"}) != 0 or vector(0)",
@@ -1343,7 +1352,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
           },
           "editorMode": "code",
           "expr": "sum(kube_pod_container_status_terminated_reason{namespace=~\"$RunnerNamespace\", reason=\"Error\"}) != 0 or vector(0)",
@@ -1356,7 +1365,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
           },
           "disableTextWrap": false,
           "editorMode": "code",
@@ -1416,7 +1425,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
       },
       "description": "The average time required for a reconciliation request to be processed. This reflects the time required for the controller to process a single request to modify a Kubernetes resource.",
       "fieldConfig": {
@@ -1462,8 +1471,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1498,16 +1506,16 @@
       "pluginVersion": "11.5.2",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
+          },
           "editorMode": "code",
           "expr": "rate(controller_runtime_reconcile_time_seconds_sum{namespace=\"$SystemNamespace\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{controller}}",
           "range": true,
-          "refId": "A",
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          }
+          "refId": "A"
         }
       ],
       "title": "Reconcile Time",
@@ -1516,7 +1524,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
       },
       "description": "The average time a queued reconciliation request spends waiting to be processed.",
       "fieldConfig": {
@@ -1562,8 +1570,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1598,15 +1605,15 @@
       "pluginVersion": "11.5.2",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
+          },
           "editorMode": "code",
           "expr": "rate(workqueue_queue_duration_seconds_sum{namespace=\"$SystemNamespace\"}[$__rate_interval])",
           "legendFormat": "{{controller}}",
           "range": true,
-          "refId": "A",
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          }
+          "refId": "A"
         }
       ],
       "title": "Workqueue Queue Duration",
@@ -1615,7 +1622,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
       },
       "description": "Errors indicate that controller has not achieved a desired state and is requesting Kubernetes to queue another request for reconciliation. Ideally, this number remains close to zero. An increasing number can indicate resource contention or delays processing API server requests.",
       "fieldConfig": {
@@ -1661,8 +1668,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1696,16 +1702,16 @@
       "pluginVersion": "11.5.2",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
+          },
           "editorMode": "code",
           "expr": "rate(controller_runtime_reconcile_errors_total{namespace=\"$SystemNamespace\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{controller}}",
           "range": true,
-          "refId": "A",
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          }
+          "refId": "A"
         }
       ],
       "title": "Reconciliation Errors",
@@ -1714,7 +1720,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
       },
       "description": "The number of reconcile requests that are waiting to be processed by the controller. A growing queue depth can indicate that the Kubernetes API Server or the controller does not have enough resources. This can lead to pods taking longer to be deleted or started. ",
       "fieldConfig": {
@@ -1728,8 +1734,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1767,15 +1772,15 @@
       "pluginVersion": "11.5.2",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
+          },
           "editorMode": "code",
           "expr": "sum (workqueue_depth{namespace=\"$SystemNamespace\"}) by (name)",
           "legendFormat": "__auto",
           "range": true,
-          "refId": "A",
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          }
+          "refId": "A"
         }
       ],
       "title": "Queue Depth",
@@ -1784,7 +1789,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
       },
       "description": "The number of workers that are currently being used to process reconcile requests. Increasing this number can reduce the work queue duration, but each new worker adds a small amount of time due to context switching.",
       "fieldConfig": {
@@ -1797,8 +1802,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1836,15 +1840,15 @@
       "pluginVersion": "11.5.2",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
+          },
           "editorMode": "code",
           "expr": "sum by (controller) (controller_runtime_active_workers)",
           "legendFormat": "__auto",
           "range": true,
-          "refId": "A",
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          }
+          "refId": "A"
         }
       ],
       "title": "Active Workers",
@@ -1853,7 +1857,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
       },
       "description": "The number of calls to the API server",
       "fieldConfig": {
@@ -1899,8 +1903,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1934,16 +1937,16 @@
       "pluginVersion": "11.5.2",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
+          },
           "editorMode": "code",
           "expr": "sum by (method, code) (rate(rest_client_requests_total{namespace=\"$SystemNamespace\"}[$__rate_interval]))",
           "format": "time_series",
           "legendFormat": "__auto",
           "range": true,
-          "refId": "A",
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          }
+          "refId": "A"
         }
       ],
       "title": "API Calls",
@@ -1965,7 +1968,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
       },
       "description": "The time required by Prometheus to read and process metrics. Long scrape times can delay metrics updates or lead to metrics loss. Increasing time often indicates issues with metrics cardinality or cluster resources.",
       "fieldConfig": {
@@ -2014,8 +2017,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2050,17 +2052,17 @@
       "pluginVersion": "11.5.2",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
+          },
           "editorMode": "code",
           "exemplar": false,
           "expr": "scrape_duration_seconds",
           "instant": false,
           "legendFormat": "{{job}}",
           "range": true,
-          "refId": "A",
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          }
+          "refId": "A"
         }
       ],
       "title": "Scrape Duration",
@@ -2068,7 +2070,7 @@
     }
   ],
   "refresh": "5s",
-  "schemaVersion": 40,
+  "schemaVersion": 39,
   "tags": [],
   "templating": {
     "list": [
@@ -2076,10 +2078,11 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
         },
         "definition": "label_values(gha_controller_running_listeners,namespace)",
         "description": "The ARC system namespace",
+        "hide": 0,
         "includeAll": true,
         "label": "ARC System Namespace",
         "multi": true,
@@ -2092,16 +2095,19 @@
         },
         "refresh": 1,
         "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
         "type": "query"
       },
       {
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
         },
         "definition": "label_values(gha_desired_runners,actions_github_com_scale_set_name)",
         "description": "The name of the runner scale set",
+        "hide": 0,
         "includeAll": true,
         "label": "Scale Set",
         "multi": true,
@@ -2114,16 +2120,19 @@
         },
         "refresh": 2,
         "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
         "type": "query"
       },
       {
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "${DS_OPENTELEMETRY-MIMIR-PROMETHEUS-MONITORING}"
         },
         "definition": "label_values(gha_desired_runners{actions_github_com_scale_set_name=~\"$Scaleset\"},namespace)",
         "description": "Namespace containing the runners",
+        "hide": 0,
         "includeAll": true,
         "label": "Runner Namespace",
         "multi": true,
@@ -2136,6 +2145,8 @@
         },
         "refresh": 2,
         "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
         "type": "query"
       }
     ]
@@ -2160,8 +2171,8 @@
     ]
   },
   "timezone": "",
-  "title": "ARC Autoscaling Runner Set Monitoring",
-  "uid": "af21e938-2151-4bf2-b798-8cf9232f947a",
+  "title": "ARC Autoscaling Runner Set Monitoring Dashboard",
+  "uid": "af21e938-2151-4bf2-b798-8cf9232f947b",
   "version": 1,
   "weekStart": ""
 }
